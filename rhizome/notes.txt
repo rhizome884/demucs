@@ -1,0 +1,1 @@
+I should try fine tuning the 6 source model ('5c90dfd2') for my guitarset experiments. Is there an individual guitar model which can be fine tuned? 
