@@ -1,0 +1,138 @@
+./conf/config.yaml:24:  sources: ['drums', 'bass', 'other', 'vocals']
+./README.md:39:We are also releasing an experimental 6 sources model, that adds a `guitar` and `piano` source.
+./README.md:58:    a 6 sources models (adding `guitar` and `piano`, although the latter doesn't work so well at the moment).
+./README.md:68: on all sources. This is the model that won Sony MDX challenge.
+./README.md:81:`Overall SDR` is the mean of the SDR for each of the 4 sources, `MOS Quality` is a rating from 1 to 5
+./README.md:83:is a rating from 1 to 5 with 5 being zero contamination by other sources. We refer the reader to our [paper][hybrid_pap
+er],
+./README.md:225:- `htdemucs_6s`: 6 sources version of `htdemucs`, with `piano` and `guitar` being added as sources.
+./Demucs.ipynb:83:    "out = apply_model(model, x)[0]     # shape is [S, C, T] with S the number of sources\n",
+./Demucs.ipynb:86:    "for name, source in zip(model.sources, out):\n",
+./Demucs.ipynb:106:    "for name, source in zip(model.sources, out):\n",
+./tools/automix.py:121:    We repeat for all sources.
+./tools/automix.py:123:    sources = len(stems)
+./tools/automix.py:145:    for s in range(1, sources):
+./tools/automix.py:217:    be kept and other sources will be drawn from the catalog.
+./demucs.egg-info/PKG-INFO:83:We are also releasing an experimental 6 sources model, that adds a `guitar` and `piano` source.
+./demucs.egg-info/PKG-INFO:102:    a 6 sources models (adding `guitar` and `piano`, although the latter doesn't work so well at the mo
+ment).
+./demucs.egg-info/PKG-INFO:112: on all sources. This is the model that won Sony MDX challenge.
+./demucs.egg-info/PKG-INFO:125:`Overall SDR` is the mean of the SDR for each of the 4 sources, `MOS Quality` is a rating from 1 to 5
+./demucs.egg-info/PKG-INFO:127:is a rating from 1 to 5 with 5 being zero contamination by other sources. We refer the reader to our [p
+aper][hybrid_paper],
+./demucs.egg-info/PKG-INFO:269:- `htdemucs_6s`: 6 sources version of `htdemucs`, with `piano` and `guitar` being added as sources.
+./docs/api.md:43:for file, sources in separated:
+./docs/api.md:44:    for stem, source in sources.items():
+./docs/release.md:42:Added experimental 6 sources model `htdemucs_6s` (`drums`, `bass`, `other`, `vocals`, `piano`, `guitar`).
+./docs/release.md:66:Fix bug in weights used for different sources. Thanks @keunwoochoi for the report and fix.
+./docs/training.md:153:`demucs/remote/mdx.yaml` to `./release_models/my_bag.yaml`. You can then edit the list of models (all models us
+ed should have been exported first) and the weights per source and model (list of list, outer list is over models, inner list is over 
+sources). You can then use your bag of model as
+./docs/training.md:199:dora grid mmi_ft --dry_run --init  # fined tuned on each sources.
+./docs/training.md:243:The hybrid models are combined with equal weights for all sources except for the bass.
+./docs/training.md:262:All the models are combined with equal weights for all sources.
+./docs/training.md:283:We average the performance of all the models with the same weight over all sources, unlike
+./outputs/xps/97d170e1/.hydra/config.yaml:16:  sources:
+./outputs/xps/81de367c/.hydra/config.yaml:16:  sources:
+./outputs/xps/2db45dc4/.hydra/config.yaml:16:  sources:
+./demucs/separate.py:23:                                     description="Separate the sources for the given tracks")
+./demucs/separate.py:150:    if args.stem is not None and args.stem not in separator.model.sources:
+./demucs/separate.py:153:            "STEM must be one of {sources}.".format(
+./demucs/separate.py:154:                stem=args.stem, sources=", ".join(separator.model.sources)
+./demucs/pretrained.py:28:    model = HDemucs(channels=4, sources=SOURCES)
+./demucs/api.py:292:        return (wav, dict(zip(self._model.sources, out[0])))
+./demucs/hdemucs.py:367:                 sources,
+./demucs/hdemucs.py:413:            sources (list[str]): list of source names.
+./demucs/hdemucs.py:458:        self.sources = sources
+./demucs/hdemucs.py:556:                chin = self.audio_channels * len(self.sources)
+./demucs/hdemucs.py:771:        S = len(self.sources)
+./demucs/htdemucs.py:58:        sources,
+./demucs/htdemucs.py:136:            sources (list[str]): list of source names.
+./demucs/htdemucs.py:227:        self.sources = sources
+./demucs/htdemucs.py:323:                chin = self.audio_channels * len(self.sources)
+./demucs/htdemucs.py:624:        S = len(self.sources)
+./demucs/remote/files.txt:31:# Experimental 6 sources model
+./demucs/demucs.py:222:                 sources,
+./demucs/demucs.py:258:            sources (list[str]): list of source names
+./demucs/demucs.py:298:        self.sources = sources
+./demucs/demucs.py:351:                out_channels = len(self.sources) * audio_channels
+./demucs/demucs.py:435:        x = x.view(x.size(0), len(self.sources), self.audio_channels, x.size(-1))
+./demucs/augment.py:24:        batch, sources, channels, time = wav.size()
+./demucs/augment.py:30:                srcs = 1 if self.same else sources
+./demucs/augment.py:32:                offsets = offsets.expand(-1, sources, channels, -1)
+./demucs/augment.py:43:        batch, sources, channels, time = wav.size()
+./demucs/augment.py:45:            left = th.randint(2, (batch, sources, 1, 1), device=wav.device)
+./demucs/augment.py:57:        batch, sources, channels, time = wav.size()
+./demucs/augment.py:59:            signs = th.randint(2, (batch, sources, 1, 1), device=wav.device, dtype=th.float32)
+./demucs/augment.py:66:    Shuffle sources to make new mixes.
+./demucs/augment.py:70:        Shuffle sources within one batch.
+./demucs/augment.py:74:        probability of keeping two sources from the same track together which can impact
+./demucs/evaluate.py:118:                [th.from_numpy(track.targets[name].audio).t() for name in model.sources])
+./demucs/evaluate.py:127:                for name, estimate in zip(model.sources, estimates):
+./demucs/evaluate.py:140:            for idx, target in enumerate(model.sources):
+./demucs/evaluate.py:144:                for idx, target in enumerate(model.sources):
+./demucs/evaluate.py:158:        metric_names = next(iter(all_tracks.values()))[model.sources[0]]
+./demucs/evaluate.py:162:            for source in model.sources:
+./demucs/evaluate.py:170:                avg += mean / len(model.sources)
+./demucs/evaluate.py:171:                avg_of_medians += median / len(model.sources)
+./demucs/wav.py:31:def _track_metadata(track, sources, normalize=True, ext=EXT):
+./demucs/wav.py:36:    for source in sources + [MIXTURE]:
+./demucs/wav.py:40:            for sub_source in sources:
+./demucs/wav.py:79:def build_metadata(path, sources, normalize=True, ext=EXT):
+./demucs/wav.py:85:        sources (list[str]): list of sources to look for.
+./demucs/wav.py:101:            pendings.append((name, pool.submit(_track_metadata, root, sources, normalize, ext)))
+./demucs/wav.py:102:            # meta[name] = _track_metadata(root, sources, normalize, ext)
+./demucs/wav.py:111:            root, metadata, sources,
+./demucs/wav.py:116:        with arbitrary sources. Each track should be one folder inside of `path`.
+./demucs/wav.py:122:            sources (list[str]): list of source names.
+./demucs/wav.py:140:        self.sources = sources
+./demucs/wav.py:171:            for source in self.sources:
+./demucs/wav.py:197:        train = build_metadata(train_path, args.sources)
+./demucs/wav.py:198:        valid = build_metadata(valid_path, args.sources)
+./demucs/wav.py:207:    train_set = Wavset(train_path, train, args.sources,
+./demucs/wav.py:211:    valid_set = Wavset(valid_path, valid, [MIXTURE] + list(args.sources),
+./demucs/wav.py:232:        metadata = build_metadata(root, args.sources)
+./demucs/wav.py:248:    train_set = Wavset(root, metadata_train, args.sources,
+./demucs/wav.py:252:    valid_set = Wavset(root, metadata_valid, [MIXTURE] + list(args.sources),
+./demucs/solver.py:163:        for source in self.model.sources:
+./demucs/solver.py:306:        for idx, sources in enumerate(logprog):
+./demucs/solver.py:307:            sources = sources.to(self.device)
+./demucs/solver.py:309:                sources = self.augment(sources)
+./demucs/solver.py:310:                mix = sources.sum(dim=1)
+./demucs/solver.py:312:                mix = sources[:, 0]
+./demucs/solver.py:313:                sources = sources[:, 1:]
+./demucs/solver.py:320:                sources = self.model.transform_target(mix, sources)
+./demucs/solver.py:321:            assert estimate.shape == sources.shape, (estimate.shape, sources.shape)
+./demucs/solver.py:322:            dims = tuple(range(2, sources.dim()))
+./demucs/solver.py:325:                loss = F.l1_loss(estimate, sources, reduction='none')
+./demucs/solver.py:329:                loss = F.mse_loss(estimate, sources, reduction='none')
+./demucs/solver.py:335:            weights = torch.tensor(args.weights).to(sources)
+./demucs/solver.py:349:                nsdrs = new_sdr(sources, estimate.detach()).mean(0)
+./demucs/solver.py:351:                for source, nsdr, w in zip(self.model.sources, nsdrs, weights):
+./demucs/solver.py:365:            for k, source in enumerate(self.model.sources):
+./demucs/apply.py:42:                each containing S floats (S number of sources).
+./demucs/apply.py:50:            assert other.sources == first.sources
+./demucs/apply.py:59:        self.sources = first.sources
+./demucs/apply.py:63:            weights = [[1. for _ in first.sources] for _ in models]
+./demucs/apply.py:67:                assert len(weight) == len(first.sources)
+./demucs/apply.py:206:        totals = [0.] * len(model.sources)
+./demucs/apply.py:259:        out = th.zeros(batch, len(model.sources), channels, length, device=mix.device)
+grep: ./demucs/__pycache__/wav.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/apply.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/train.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/augment.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/htdemucs.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/separate.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/hdemucs.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/pretrained.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/evaluate.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/solver.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/demucs.cpython-38.pyc: binary file matches
+grep: ./demucs/__pycache__/api.cpython-38.pyc: binary file matches
+./demucs/train.py:51:        self.sources = kwargs['sources']
+./demucs/train.py:60:        'sources': list(args.dset.sources),
+./demucs/train.py:119:        if len(args.dset.sources) <= 4:
+./demucs/train.py:183:        if 'vocals' in args.dset.sources:
+./demucs/train.py:184:            vocals.append(args.dset.sources.index('vocals'))
+
+[Process exited 0]
